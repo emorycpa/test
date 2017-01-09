@@ -22,6 +22,8 @@ Structure of this project:
 
 - `main.scss` – output file that brings together all of the above parts
 
+- `main.css` - compiled directly from `main.scss`, using your favorite sass compiler. **This is the only file that supposed to be transferred to cascade**
+
 <hr/>
 
 # Main file
