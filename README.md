@@ -42,9 +42,9 @@ Basic Structure:
 
 5. *personal account*: Compile main.scss to main.css
 
-6. *personal account*: Use Github Desktop to commit and push all code in this project to `development` branch
+6. *personal account*: Use Github Desktop to commit and push all code in this project to `master` branch
 
-7. *admin account*: Check code to make sure everything is ready, then transfer main.css to `master` branch
+7. *admin account*: Check code to make sure everything is ready, then transfer main.css to `cascade` branch
 
 8. *admin account*: Go to project in cascade server, immigrate main.css to cascade
 
