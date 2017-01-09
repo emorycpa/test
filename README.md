@@ -30,7 +30,7 @@ Basic Structure:
 
 *Lasted Updated by Pengyin Shan, Jan 2017*
 
-*Problem needs to be discussed: Unable to do subtree inside Visual Studio Code, 60 requests limit in Github API*
+*Problem needs to be discussed: Unable to do subtree inside Visual Studio Code (Use Github Desktop), 60 requests limit in Github API, Do we need dist folder?*
 
 1. *admin account*: Clone this project using `git clone https://github.com/emorycpa/sass-boilerplate.git NewProjectName`, replace `NewProjectName` with the new project name 
 
@@ -40,11 +40,11 @@ Basic Structure:
 
 4. *personal account*: Modify separate scss code. **Remember to do Import in `main.scss` if you create any new scss file. ** 
 
-5. *personal account*: Compile main.scss to main.css
+5. *personal account*: Compile `main.scss` to `main.css`. **Make sure `main.css` is in `dist` folder**
 
 6. *personal account*: Use Github Desktop to commit and push all code in this project to `master` branch
 
-7. *admin account*: Check code to make sure everything is ready, then transfer main.css to `cascade` branch
+7. *admin account*: Check code to make sure everything is ready, then transfer **everything in dist folder** to `cascade` branch by doing `git add`, `git commit` and `./git-deploy dist`. 
 
 8. *admin account*: Go to project in cascade server, immigrate main.css to cascade
 
