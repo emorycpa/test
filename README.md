@@ -1,5 +1,7 @@
 #Project Introduction 
 
+*Lasted Updated by Pengyin Shan, Jan 2017*
+
 ##Structure of Project
 
 This project is forked from <a href="https://github.com/HugoGiraudel/sass-boilerplate">sass-boilerplate created by Hugo Giraudel</a>. Reference can be found <a href="https://sass-guidelin.es/#the-7-1-pattern">here</a>.
@@ -26,9 +28,109 @@ Basic Structure:
 
 - `main.css` - compiled directly from `main.scss`, using your favorite sass compiler. **This is the only file that supposed to be transferred `dist` folder**
 
-##How to Use
+###Some suggestion from previous Khourshid's article
 
-*Lasted Updated by Pengyin Shan, Jan 2017*
+####1
+
+Each folder should have a single `.scss` partial file that collects the other files in the same directory – such as `_module.scss` (my preference) or `_glob.scss`. Then, you can reference each of these in the `main.scss` file
+
+####2
+
+Structure folder: A flexible pattern for defining component structure is to put it in a Sass `%placeholder` that is only `@extend`ed once by a real selector.
+
+Example of Exported Selectors from Khourshid:
+
+```scss
+.scotch-button {
+    @extend %button;
+    @include scotch-button-theme($color-primary);
+
+    &.secondary {
+        @include scotch-button-theme($color-secondary);
+    }
+}
+```
+####3
+
+It is highly suggested that palette colors are named semantically rather than on their appearance. A variable like `$color-blue` has little meaning (other than that the color is blue), whereas `$color-primary` defines the color’s role semantically.
+
+The Sass function `map-get()`, or a **custom utility function** (recommended), can be used to reference individual colors:
+
+```scss
+$scotch-colors: (
+  'primary': #8e3329, 
+  'accent': #d98328,
+  'secondary': #5a1321,
+  'foreground': #191919,
+  'background': #e9e9e9
+);
+
+@function scotch-color($key: 'primary') {
+  @return map-get($scotch-colors, $key);
+}
+
+$button-color: scotch-color('primary'); // #8e3329
+````
+
+####4
+
+For Modular:  The point is to choose a type scale and stick with it throughout the project
+
+```scss
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
+
+$type-scale: (
+  -1: 0.75rem,  // small text
+  0: 1rem,      // body text
+  1: 1.333rem,  // large text
+  2: 1.777rem   // main heading
+);
+
+$line-heights: (
+  -1: $base-line-height,
+  0: $base-line-height,
+  1: $base-line-height * 2,
+  2: $base-line-height * 2
+);
+
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+@function line-height($level) {
+  @return map-get($line-height, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+}
+
+// The main heading
+.heading-1 { @include type-setting(2); }
+
+// The smaller top heading
+.heading-2 { @include type-setting(-1); }
+
+.paragraph { @include type-setting(0); }
+
+.recipe-value { @include type-setting(1); }
+
+.recipe-text { @include type-setting(-1); }
+
+.recipe-button { @include type-setting(-1); }
+```
+
+####Khourshid's SASS Articles
+
+- Part 1: https://scotch.io/tutorials/aesthetic-sass-1-architecture-and-style-organization
+
+- Part 2: https://scotch.io/tutorials/aesthetic-sass-2-colors
+
+- Part 3: https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
+
+##How to Use
 
 *Problem needs to be discussed: Unable to do subtree inside Visual Studio Code (Use Github Desktop), 60 requests limit in Github API, Do we need dist folder?*
 
@@ -38,7 +140,7 @@ Basic Structure:
 
 3. *personal account*: Using Github Desktop, clone new project to your local machine
 
-4. *personal account*: Modify separate scss code. **Remember to do Import in `main.scss` if you create any new scss file. ** 
+4. *personal account*: Modify separate scss code. *Remember to do Import in `main.scss` if you create any new scss file.* 
 
 5. *personal account*: Compile `main.scss` to `main.css`. **Make sure `main.css` is in `dist` folder**
 
