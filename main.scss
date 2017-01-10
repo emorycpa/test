@@ -2,34 +2,28 @@
 
 // 1. Configuration and helpers
 @import
-  'abstracts/variables',
-  'abstracts/functions',
-  'abstracts/mixins';
+  'abstracts/module';
 
 // 2. Vendors
 @import
-  'vendor/normalize';
+  'vendor/module';
 
 // 3. Base stuff
 @import
-  'base/base',
-  'base/fonts',
-  'base/typography',
-  'base/helpers';
+  'base/module';
 
 // 4. Layout-related sections
 @import
-  'layout/header',
-  'layout/footer';
+  'layout/module';
 
 // 5. Components
 @import
-  'components/button';
+  'components/module';
 
 // 6. Page-specific styles
 @import
-  'pages/home';
+  'pages/module';
 
 // 7. Themes
 @import
-  'themes/default';
+  'themes/module';
