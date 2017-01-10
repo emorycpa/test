@@ -28,11 +28,32 @@ Basic Structure:
 
 - `main.css` - compiled directly from `main.scss`, using your favorite sass compiler. **This is the only file that supposed to be transferred `dist` folder**
 
+##How to Use
+
+*Problem needs to be discussed: Unable to do subtree inside Visual Studio Code (Use Github Desktop), 60 requests limit in Github API, Do we need dist folder?*
+
+1. *admin account*: Clone this project using `git clone https://github.com/emorycpa/sass-boilerplate.git NewProjectName`, replace `NewProjectName` with the new project name 
+
+2. *admin account*: Add collaborators to new project
+
+3. *personal account*: If this is a new project - Using Github Desktop, clone new project to your local machine. If working on old project: **pull changes from repository first**
+
+4. *personal account*: Modify separate scss code. *Remember to do Import in `_module.scss` in target folder if you create any new scss file.* 
+
+5. *personal account*: Compile `main.scss` to `main.css`. 
+
+6. *personal account*: Use Github Desktop to commit and push all code in this project to `master` branch
+
+7. *admin account*: Go to project in cascade server, immigrate main.css to cascade
+
+
 ###Some suggestion from previous Khourshid's article
 
 ####1
 
 Each folder should have a single `.scss` partial file that collects the other files in the same directory – such as `_module.scss` (my preference) or `_glob.scss`. Then, you can reference each of these in the `main.scss` file
+
+*Jan 10: Added seperate _module.scss files to each folder.*
 
 ####2
 
@@ -129,26 +150,6 @@ $line-heights: (
 - Part 2: https://scotch.io/tutorials/aesthetic-sass-2-colors
 
 - Part 3: https://scotch.io/tutorials/aesthetic-sass-3-typography-and-vertical-rhythm
-
-##How to Use
-
-*Problem needs to be discussed: Unable to do subtree inside Visual Studio Code (Use Github Desktop), 60 requests limit in Github API, Do we need dist folder?*
-
-1. *admin account*: Clone this project using `git clone https://github.com/emorycpa/sass-boilerplate.git NewProjectName`, replace `NewProjectName` with the new project name 
-
-2. *admin account*: Add collaborators to new project
-
-3. *personal account*: Using Github Desktop, clone new project to your local machine
-
-4. *personal account*: Modify separate scss code. *Remember to do Import in `main.scss` if you create any new scss file.* 
-
-5. *personal account*: Compile `main.scss` to `main.css`. **Make sure `main.css` is in `dist` folder**
-
-6. *personal account*: Use Github Desktop to commit and push all code in this project to `master` branch
-
-7. *admin account*: Check code to make sure everything is ready, then transfer **everything in dist folder** to `cascade` branch by doing `git add`, `git commit` and `./git-deploy dist`. 
-
-8. *admin account*: Go to project in cascade server, immigrate main.css to cascade
 
 <hr/>
 
