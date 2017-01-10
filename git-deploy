@@ -4,4 +4,6 @@ then
   echo "Which folder do you want to deploy to cascade folder?"
   exit 1
 fi
+git add --all
+git commit -m 'transfer to cascade branch'
 git subtree push --prefix $1 origin cascade
